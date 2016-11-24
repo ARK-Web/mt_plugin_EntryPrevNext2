@@ -1,0 +1,1 @@
+# mt_plugin_EntryPrevNext2
