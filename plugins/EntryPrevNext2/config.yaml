@@ -1,0 +1,13 @@
+name: EntryPrevNext2
+id: EntryPrevNext2
+author_name: <__trans phrase="_PLUGIN_AUTHOR">
+author_link: https://www.ark-web.jp/
+plugin_link: https://github.com/ARK-Web/mt_plugin_EntryPrevNext2
+description: <__trans phrase="_PLUGIN_DESCRIPTION">
+version: 1.0
+l10n_class: EntryPrevNext2::L10N
+
+tags:
+    block:
+        EntryNext2: $EntryPrevNext2::EntryPrevNext2::Plugin::_hdlr_entry_next
+        EntryPrevious2: $EntryPrevNext2::EntryPrevNext2::Plugin::_hdlr_entry_previous
