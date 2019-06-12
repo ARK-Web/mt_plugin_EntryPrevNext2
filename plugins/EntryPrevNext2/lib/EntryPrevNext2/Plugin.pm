@@ -74,4 +74,33 @@ sub _nextprev {
     return $o;
 }
 
+sub cb_cms_post_save_entry {
+    my ($cb, $app, $obj) = @_;
+
+    my $mt = MT->instance;
+    my $plugin = MT->component('EntryPrevNext2');
+    my $config = $plugin->get_config_hash('blog:' . $obj->blog_id);
+    return 1 unless $config->{'rebuild_prevnext_entry'};
+
+    my $prev = _nextprev($obj, 'previous', {by_category => 1});
+    if ($prev) {
+        if ($mt->rebuild_entry(Entry => $prev->id)) {
+            $app->log("EntryPrevNext2: " . $plugin->translate("Entry #[_1] has been rebuilt.", $prev->id));
+        } else {
+            $app->log("EntryPrevNext2: " . $plugin->translate("Failed to rebuild Entry #[_1].", $prev->id));
+        }
+    }
+
+    my $next = _nextprev($obj, 'next', {by_category => 1});
+    if ($next) {
+        if ($mt->rebuild_entry(Entry => $next->id)) {
+            $app->log("EntryPrevNext2: " . $plugin->translate("Entry #[_1] has been rebuilt.", $next->id));
+        } else {
+            $app->log("EntryPrevNext2: " . $plugin->translate("Failed to rebuild Entry #[_1].", $next->id));
+        }
+    }
+
+    return 1;
+}
+
 1;

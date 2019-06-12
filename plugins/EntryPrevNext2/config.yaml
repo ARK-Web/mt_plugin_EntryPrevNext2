@@ -4,10 +4,18 @@ author_name: <__trans phrase="_PLUGIN_AUTHOR">
 author_link: https://www.ark-web.jp/
 plugin_link: https://github.com/ARK-Web/mt_plugin_EntryPrevNext2
 description: <__trans phrase="_PLUGIN_DESCRIPTION">
-version: 1.0
+version: 1.1
 l10n_class: EntryPrevNext2::L10N
+
+blog_config_template: blog_config.tmpl
+settings:
+    rebuild_prevnext_entry:
+        Scope: blog
 
 tags:
     block:
         EntryNext2: $EntryPrevNext2::EntryPrevNext2::Plugin::_hdlr_entry_next
         EntryPrevious2: $EntryPrevNext2::EntryPrevNext2::Plugin::_hdlr_entry_previous
+callbacks:
+    MT::App::CMS::cms_post_save.entry: '$EntryPrevNext2::EntryPrevNext2::Plugin::cb_cms_post_save_entry'
+    MT::App::CMS::cms_post_save.page: '$EntryPrevNext2::EntryPrevNext2::Plugin::cb_cms_post_save_entry'
