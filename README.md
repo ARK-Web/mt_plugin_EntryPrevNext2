@@ -1,60 +1,60 @@
 # mt_plugin_EntryPrevNext2
 
-���C���J�e�S���������L�����m�� �O�� / ���� �ł���MT�p�v���O�C��
+メインカテゴリが同じ記事同士で 前へ / 次へ できるMT用プラグイン
 ====
 
-ARK-Web/mt_plugin_EntryPrevNext2 - �O�̋L�� / ���̋L�� ���o�͂���p�v���O�C��
+ARK-Web/mt_plugin_EntryPrevNext2 - 前の記事 / 次の記事 を出力する用プラグイン
 
-### �T�v
+### 概要
 
-�O�̋L�� / ���̋L�� ���o�͂���^�O MTEntryPrevious2/Next2 ��񋟂��܂��B
+前の記事 / 次の記事 を出力するタグ MTEntryPrevious2/Next2 を提供します。
 
-���C���J�e�S���������Ɠ����L�����m�� �O��/���� ���郊���N��ǉ��ł��܂��B
+メインカテゴリが自分と同じ記事同士で 前へ/次へ するリンクを追加できます。
 
 
-### �������
+### 動作条件
 
-* MT6�Ή�
-* �X�^�e�B�b�N�p�u���b�V���O����
+* 対応バージョン: MT6, MT7　※MT7は記事、ウェブページで動作します。コンテンツタイプには対応していません。
+* スタティックパブリッシング限定
 
-### �_�E�����[�h
+### ダウンロード
 
 [https://github.com/ARK-Web/mt_plugin_EntryPrevNext2](https://github.com/ARK-Web/mt_plugin_EntryPrevNext2)
 
-### �C���X�g�[��
+### インストール
 
-zip�t�@�C�����𓀂��Č���� [EntryPrevNext2]�t�H���_���ƁAMT�f�B���N�g��/plugins  �f�B���N�g���ɃA�b�v���[�h���܂��B
-
-
-### �g����
-
-MT�f�t�H���g�� MTEntryPrevious/Next �Ƃقړ����g�����ł����A
-by_category="1" ���f�B�t�@�C�A�w�莞�ɁA��/�O�L���Ƃ��� ���C���J�e�S���𓯂�������L��������Ώۂɂ���_���قȂ�܂��B
+zipファイルを解凍して現れる [EntryPrevNext2]フォルダごと、MTディレクトリ/plugins  ディレクトリにアップロードします。
 
 
-* by_author="0 | 1" ���f�B�t�@�C�A
-1 ���w�肷��ƁA���݂̋L���̍�҂��������O(/��)�̋L�����Ăяo���܂��B�����l�� 0 �ł��B
+### 使い方
 
-* by_category="0 | 1" ���f�B�t�@�C�A
-1 ���w�肷��ƁA���݂̋L���� *�����v���C�}���J�e�S���i���C���J�e�S���j�̑O(/��)�̋L��* ���Ăяo���܂��B�����l�� 0 �ł��B
+MTデフォルトの MTEntryPrevious/Next とほぼ同じ使い方ですが、
+by_category="1" モディファイア指定時に、次/前記事として メインカテゴリを同じくする記事だけを対象にする点が異なります。
 
-* �Q�l
+
+* by_author="0 | 1" モディファイア
+1 を指定すると、現在の記事の作者が書いた前(/後)の記事を呼び出します。初期値は 0 です。
+
+* by_category="0 | 1" モディファイア
+1 を指定すると、現在の記事と *同じプライマリカテゴリ（メインカテゴリ）の前(/後)の記事* を呼び出します。初期値は 0 です。
+
+* 参考
   * [MTEntryPrevious](https://www.movabletype.jp/documentation/appendices/tags/entryprevious.html)
   * [MTEntryNext](https://www.movabletype.jp/documentation/appendices/tags/entrynext.html)
 
 
-### �f�t�H���g��EntryPrevious/Next�Ɠ���̈Ⴂ�ɂ���
+### デフォルトのEntryPrevious/Nextと動作の違いについて
 
-�Ⴆ��
-catA�ɏ�������L��1,2,3������A���ꂼ��̃��C���J�e�S���� catA, catB, catA �������Ƃ��܂��B
-�L��1 �́u���̋L���v�͂ǂ��Ȃ邩�Ƃ����ƁA
+例えば
+catAに所属する記事1,2,3があり、それぞれのメインカテゴリは catA, catB, catA だったとします。
+記事1 の「次の記事」はどうなるかというと、
 
-**�f�t�H���g�� EntryNext  by_category="1" �̏ꍇ** �� �u���̋L���v�� �L��2
+**デフォルトの EntryNext  by_category="1" の場合** → 「次の記事」は 記事2
 
-	�� �L��1�̃��C���J�e�S���� catA�BcatA�ɑ����鎟�̋L�����o�͂����̂ŋL��2���\������܂��B�����ŋL��2 �̃��C���J�e�S���� �K������catA�łȂ��Ă������_���|�C���g�ł��B
-	 �L��2�̃��C���J�e�S���� catB �Ȃ̂ŁA���[�U�����ցA���ւƂ��ǂ��Ă�����catA�̋L�������Ă�����肪�A���̂܂ɂ�catB�̋L���� �O��/���ւ��Ă���A�Ƃ������ƂɂȂ��Ă��܂��܂��B
+	※ 記事1のメインカテゴリは catA。catAに属する次の記事が出力されるので記事2が表示されます。ここで記事2 のメインカテゴリが 必ずしもcatAでなくてもいい点がポイントです。
+	 記事2のメインカテゴリは catB なので、ユーザが次へ、次へとたどっていくとcatAの記事を見ているつもりが、いつのまにかcatBの記事を 前へ/次へしている、ということになってしまいます。
 
-**EntryNext2 by_category="1" �̏ꍇ** �� �u���̋L���v�� �L��3
+**EntryNext2 by_category="1" の場合** → 「次の記事」は 記事3
 
-	�����C���J�e�S���� catA �ȋL���́A�L��1��3�ł��B
-	�L��2��catA�ɏ������Ă��܂������C���J�e�S���ł͂Ȃ��̂őΏۂ���͂���܂��B
+	※メインカテゴリが catA な記事は、記事1と3です。
+	記事2はcatAに所属していますがメインカテゴリではないので対象からはずれます。
